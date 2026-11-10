@@ -52,6 +52,9 @@ const translations = {
     projectTwoDescription:
       "Aplikasi presensi siswa berbasis RFID dengan validasi kartu terdaftar, pencegahan presensi ganda, dan pencatatan kehadiran harian.",
 
+    projectThreeDescription:
+      "Website portofolio pribadi untuk menampilkan profil, keterampilan, dan proyek pengembangan perangkat lunak.",
+
     viewSource: "Lihat Source Code",
 
     engineeringTitle: "Pendekatan Engineering",
@@ -138,6 +141,9 @@ const translations = {
 
     projectTwoDescription:
       "An RFID-based student attendance application with registered card validation, duplicate attendance prevention, and daily attendance records.",
+
+    projectThreeDescription:
+      "A personal portfolio website showcasing my profile, skills, and software development projects.",
 
     viewSource: "View Source Code",
 
@@ -226,6 +232,9 @@ const translations = {
 
     projectTwoDescription:
       "Eine RFID-basierte Anwesenheitsverwaltung für Schüler mit Kartenvalidierung, Vermeidung doppelter Einträge und täglichen Anwesenheitsdaten.",
+
+    projectThreeDescription:
+      "Eine persönliche Portfolio-Website zur Präsentation meines Profils, meiner Fähigkeiten und Softwareentwicklungsprojekte.",
 
     viewSource: "Quellcode ansehen",
 

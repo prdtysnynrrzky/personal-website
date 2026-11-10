@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="id" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="Praditya — Software Developer yang berfokus pada pengembangan aplikasi mobile dan web."
+    />
+    <meta name="author" content="Praditya" />
+    <meta name="theme-color" content="#101522" />
+
+    <!-- Open Graph metadata for social media previews -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Praditya | Software Developer" />
+    <meta
+      property="og:description"
+      content="Portfolio Praditya, Software Developer yang berfokus pada pengembangan aplikasi mobile dan web."
+    />
+
+    <title>Praditya | Software Developer</title>
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Restore the saved theme before the page is rendered -->
+    <script>
+      (() => {
+        try {
+          const savedTheme = localStorage.getItem("portfolio-theme");
+
+          if (savedTheme === "light" || savedTheme === "dark") {
+            document.documentElement.dataset.theme = savedTheme;
+          }
+        } catch {
+          // Keep the default dark theme if storage is unavailable.
+        }
+      })();
+    </script>
+
+    <script src="js/script.js" defer></script>
+  </head>
+
+  <body>
+    <!-- Allows keyboard users to skip directly to the main content -->
+    <a class="skip-link" href="#main-content" data-i18n="skipLink">
+      Lewati ke konten utama
+    </a>
+
+    <header class="navbar">
+      <div class="container nav-container">
+        <a
+          href="#home"
+          class="logo"
+          aria-label="Praditya - Beranda"
+          data-i18n-aria-label="logoHomeLabel"
+        >
+          P<span aria-hidden="true">.</span>
+        </a>
+
+        <nav
+          class="nav-links"
+          id="nav-links"
+          aria-label="Navigasi utama"
+          data-i18n-aria-label="navLabel"
+        >
+          <a href="#home" data-i18n="navHome">Beranda</a>
+          <a href="#projects" data-i18n="navProjects">Proyek</a>
+          <a href="#engineering" data-i18n="navEngineering">Pendekatan</a>
+          <a href="#about" data-i18n="navAbout">Tentang</a>
+          <a href="#contact" data-i18n="navContact">Kontak</a>
+        </nav>
+
+        <div class="nav-controls">
+          <div
+            class="language-switch"
+            role="group"
+            aria-label="Pilih bahasa"
+            data-i18n-aria-label="languageGroupLabel"
+          >
+            <button
+              class="language-btn active"
+              type="button"
+              data-lang="id"
+              aria-pressed="true"
+              lang="id"
+              aria-label="Bahasa Indonesia"
+            >
+              ID
+            </button>
+
+            <button
+              class="language-btn"
+              type="button"
+              data-lang="en"
+              aria-pressed="false"
+              lang="en"
+              aria-label="English"
+            >
+              EN
+            </button>
+
+            <button
+              class="language-btn"
+              type="button"
+              data-lang="de"
+              aria-pressed="false"
+              lang="de"
+              aria-label="Deutsch"
+            >
+              DE
+            </button>
+          </div>
+
+          <button
+            class="theme-toggle"
+            id="theme-toggle"
+            type="button"
+            aria-label="Ganti ke mode terang"
+            data-i18n-aria-label="themeToLight"
+          >
+            <span id="theme-icon" aria-hidden="true">☀</span>
+          </button>
+
+          <button
+            class="menu-toggle"
+            id="menu-toggle"
+            type="button"
+            aria-label="Buka navigasi"
+            data-i18n-aria-label="menuOpen"
+            aria-expanded="false"
+            aria-controls="nav-links"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <!-- Hero -->
+      <section class="hero" id="home" aria-labelledby="hero-title">
+        <div class="container">
+          <div class="hero-content">
+            <p class="eyebrow" data-i18n="heroEyebrow">
+              SOFTWARE DEVELOPER / MOBILE &amp; WEB
+            </p>
+
+            <h1 id="hero-title">
+              <span data-i18n="heroLine1">Membangun software</span>
+              <br />
+              <span data-i18n="heroLine2">dengan</span>
+              <span class="accent-text" data-i18n="heroHighlight">tujuan.</span>
+            </h1>
+
+            <p class="hero-description" data-i18n="heroDescription">
+              Saya mengembangkan aplikasi mobile dan web dengan perhatian pada
+              fungsionalitas, struktur kode, dan pengalaman pengguna.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#projects" class="btn btn-primary">
+                <span data-i18n="heroButtonProjects">Lihat Proyek</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+
+              <a
+                href="#contact"
+                class="btn btn-secondary"
+                data-i18n="heroButtonContact"
+              >
+                Hubungi Saya
+              </a>
+            </div>
+          </div>
+
+          <div
+            class="hero-meta"
+            aria-label="Area pengembangan"
+            data-i18n-aria-label="heroMetaLabel"
+          >
+            <span data-i18n="heroMetaLocation">INDONESIA</span>
+            <span aria-hidden="true">—</span>
+            <span>MOBILE &amp; WEB DEVELOPMENT</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Selected projects -->
+      <section
+        class="section projects"
+        id="projects"
+        aria-labelledby="projects-title"
+      >
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">01 / SELECTED WORK</p>
+
+            <h2 id="projects-title">
+              <span data-i18n="projectsTitle">Proyek Pilihan</span>
+              <span class="heading-period" aria-hidden="true">.</span>
+            </h2>
+
+            <p data-i18n="projectsDescription">
+              Beberapa aplikasi yang pernah saya kembangkan.
+            </p>
+          </div>
+
+          <div class="project-grid">
+            <article class="project-card">
+              <div class="project-top">
+                <span class="project-number">PROJECT 01</span>
+                <span class="project-symbol" aria-hidden="true">01</span>
+              </div>
+
+              <div class="project-content">
+                <h3>Text Recognition</h3>
+
+                <p data-i18n="projectOneDescription">
+                  Aplikasi mobile untuk mengekstrak teks dari gambar menggunakan
+                  Optical Character Recognition (OCR), melalui kamera atau
+                  galeri.
+                </p>
+              </div>
+
+              <ul
+                class="tech-stack"
+                aria-label="Teknologi yang digunakan"
+                data-i18n-aria-label="techStackLabel"
+              >
+                <li>Flutter</li>
+                <li>Dart</li>
+                <li>Google ML Kit</li>
+              </ul>
+
+              <a
+                href="https://github.com/prdtysnynrrzky/text-recognition"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-link"
+              >
+                <span data-i18n="viewSource">Lihat Source Code</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </article>
+
+            <article class="project-card">
+              <div class="project-top">
+                <span class="project-number">PROJECT 02</span>
+                <span class="project-symbol" aria-hidden="true">02</span>
+              </div>
+
+              <div class="project-content">
+                <h3>Student Attendance System</h3>
+
+                <p data-i18n="projectTwoDescription">
+                  Aplikasi presensi siswa berbasis RFID dengan validasi kartu
+                  terdaftar, pencegahan presensi ganda, dan pencatatan kehadiran
+                  harian.
+                </p>
+              </div>
+
+              <ul
+                class="tech-stack"
+                aria-label="Teknologi yang digunakan"
+                data-i18n-aria-label="techStackLabel"
+              >
+                <li>Flutter</li>
+                <li>Dart</li>
+                <li>Supabase</li>
+                <li>RFID</li>
+              </ul>
+
+              <a
+                href="https://github.com/prdtysnynrrzky/hammer_student_attendance_v1"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-link"
+              >
+                <span data-i18n="viewSource">Lihat Source Code</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Development approach -->
+      <section
+        class="section engineering"
+        id="engineering"
+        aria-labelledby="engineering-title"
+      >
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">02 / DEVELOPMENT PROCESS</p>
+
+            <h2 id="engineering-title">
+              <span data-i18n="engineeringTitle"> Pendekatan Engineering </span>
+              <span class="heading-period" aria-hidden="true">.</span>
+            </h2>
+
+            <p data-i18n="engineeringDescription">
+              Prinsip yang saya gunakan dalam proses pengembangan.
+            </p>
+          </div>
+
+          <div class="engineering-grid">
+            <article class="engineering-item">
+              <span class="engineering-number" aria-hidden="true">01</span>
+
+              <h3 data-i18n="engineeringOneTitle">Problem Solving</h3>
+
+              <p data-i18n="engineeringOneDescription">
+                Memahami kebutuhan dan mengidentifikasi masalah sebelum
+                menentukan solusi.
+              </p>
+            </article>
+
+            <article class="engineering-item">
+              <span class="engineering-number" aria-hidden="true">02</span>
+
+              <h3 data-i18n="engineeringTwoTitle">Code Structure</h3>
+
+              <p data-i18n="engineeringTwoDescription">
+                Menulis kode yang terorganisasi agar lebih mudah dipahami dan
+                dipelihara.
+              </p>
+            </article>
+
+            <article class="engineering-item">
+              <span class="engineering-number" aria-hidden="true">03</span>
+
+              <h3 data-i18n="engineeringThreeTitle">Implementation</h3>
+
+              <p data-i18n="engineeringThreeDescription">
+                Mengembangkan fitur yang berfungsi sesuai kebutuhan dan tujuan
+                aplikasi.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section class="section about" id="about" aria-labelledby="about-title">
+        <div class="container about-grid">
+          <div class="section-heading">
+            <p class="eyebrow">03 / ABOUT</p>
+
+            <h2 id="about-title">
+              <span data-i18n="aboutTitle">Tentang Saya</span>
+              <span class="heading-period" aria-hidden="true">.</span>
+            </h2>
+          </div>
+
+          <div class="about-content">
+            <p data-i18n="aboutParagraphOne">
+              Saya adalah software developer yang tertarik pada pengembangan
+              aplikasi mobile dan web. Saya berfokus pada pembuatan solusi
+              perangkat lunak yang fungsional dan dapat digunakan.
+            </p>
+
+            <p data-i18n="aboutParagraphTwo">
+              Saya juga tertarik pada problem solving, kualitas kode, struktur
+              aplikasi, dan pengembangan kemampuan teknis secara berkelanjutan.
+            </p>
+
+            <dl class="about-details">
+              <div>
+                <dt class="detail-label" data-i18n="detailFocus">FOKUS</dt>
+                <dd data-i18n="detailFocusValue">
+                  Mobile &amp; Web Development
+                </dd>
+              </div>
+
+              <div>
+                <dt class="detail-label" data-i18n="detailStack">TECH STACK</dt>
+                <dd>Flutter, Dart, HTML, CSS, JavaScript</dd>
+              </div>
+
+              <div>
+                <dt class="detail-label" data-i18n="detailLocation">LOKASI</dt>
+                <dd data-i18n="detailLocationValue">Indonesia</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section
+        class="section contact"
+        id="contact"
+        aria-labelledby="contact-title"
+      >
+        <div class="container">
+          <div class="contact-card">
+            <p class="eyebrow">04 / CONTACT</p>
+
+            <h2 id="contact-title" data-i18n="contactTitle">
+              Mari membangun sesuatu yang bermanfaat.
+            </h2>
+
+            <p data-i18n="contactDescription">
+              Punya pertanyaan, ide proyek, atau peluang kolaborasi? Silakan
+              hubungi saya.
+            </p>
+
+            <div class="contact-links">
+              <a
+                href="mailto:pradityasonynurrizky@gmail.com"
+                class="btn btn-primary"
+              >
+                <span data-i18n="emailLabel">Email</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+
+              <a
+                href="https://github.com/prdtysnynrrzky"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-secondary"
+              >
+                GitHub
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-content">
+        <a
+          href="#home"
+          class="logo"
+          aria-label="Praditya - Beranda"
+          data-i18n-aria-label="logoHomeLabel"
+        >
+          P<span aria-hidden="true">.</span>
+        </a>
+
+        <p data-i18n="footerText">Praditya · Pengembang Perangkat Lunak</p>
+
+        <a href="#home" class="back-to-top" data-i18n="backToTop">
+          Kembali ke atas ↑
+        </a>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -44,19 +44,13 @@ const translations = {
     heroMetaLocation: "INDONESIA",
 
     projectsTitle: "Proyek Pilihan",
-    projectsDescription: "Beberapa aplikasi yang pernah saya kembangkan.",
+    projectsDescription: "Proyek yang sedang saya kembangkan.",
 
-    projectOneDescription:
-      "Aplikasi mobile untuk mengekstrak teks dari gambar menggunakan Optical Character Recognition (OCR), melalui kamera atau galeri.",
-
-    projectTwoDescription:
-      "Aplikasi presensi siswa berbasis RFID dengan validasi kartu terdaftar, pencegahan presensi ganda, dan pencatatan kehadiran harian.",
-
-    projectThreeDescription:
-      "Website portofolio pribadi untuk menampilkan profil, keterampilan, dan proyek pengembangan perangkat lunak.",
+    projectSolarDescription:
+      "Aplikasi visualisasi tata surya interaktif yang menampilkan Matahari dan delapan planet dengan animasi orbit serta pengaturan simulasi.",
 
     viewSource: "Lihat Source Code",
-    viewDemo: "Lihat Website",
+    downloadApk: "Download APK",
 
     engineeringTitle: "Pendekatan Engineering",
     engineeringDescription:
@@ -135,19 +129,13 @@ const translations = {
     heroMetaLocation: "INDONESIA",
 
     projectsTitle: "Selected Projects",
-    projectsDescription: "A selection of applications I have developed.",
+    projectsDescription: "A project I have developed.",
 
-    projectOneDescription:
-      "A mobile application that extracts text from images using Optical Character Recognition (OCR), with camera and gallery input.",
-
-    projectTwoDescription:
-      "An RFID-based student attendance application with registered card validation, duplicate attendance prevention, and daily attendance records.",
-
-    projectThreeDescription:
-      "A personal portfolio website showcasing my profile, skills, and software development projects.",
+    projectSolarDescription:
+      "An interactive solar system visualization featuring the Sun and eight planets, with orbital animations and adjustable simulation settings.",
 
     viewSource: "View Source Code",
-    viewDemo: "View Website",
+    downloadApk: "Download APK",
 
     engineeringTitle: "Engineering Approach",
     engineeringDescription:
@@ -226,20 +214,13 @@ const translations = {
     heroMetaLocation: "INDONESIEN",
 
     projectsTitle: "Ausgewählte Projekte",
-    projectsDescription:
-      "Eine Auswahl der Anwendungen, die ich entwickelt habe.",
+    projectsDescription: "Ein von mir entwickeltes Projekt.",
 
-    projectOneDescription:
-      "Eine mobile Anwendung zur Texterkennung aus Bildern mithilfe von Optical Character Recognition (OCR), mit Kamera- und Galerieeingabe.",
-
-    projectTwoDescription:
-      "Eine RFID-basierte Anwesenheitsverwaltung für Schüler mit Kartenvalidierung, Vermeidung doppelter Einträge und täglichen Anwesenheitsdaten.",
-
-    projectThreeDescription:
-      "Eine persönliche Portfolio-Website zur Präsentation meines Profils, meiner Fähigkeiten und Softwareentwicklungsprojekte.",
+    projectSolarDescription:
+      "Eine interaktive Visualisierung des Sonnensystems mit der Sonne und acht Planeten, Umlaufbahnanimationen und anpassbaren Simulationseinstellungen.",
 
     viewSource: "Quellcode ansehen",
-    viewDemo: "Website ansehen",
+    downloadApk: "APK herunterladen",
 
     engineeringTitle: "Entwicklungsansatz",
     engineeringDescription:
@@ -284,8 +265,6 @@ const translations = {
 
 /* ========================================
    2. DOM REFERENCES
-   Elemen HTML yang digunakan berulang kali
-   disimpan agar tidak perlu dicari berkali-kali.
 ======================================== */
 
 const root = document.documentElement;
@@ -310,15 +289,12 @@ const themeColorMeta = document.querySelector('meta[name="theme-color"]');
 
 /* ========================================
    3. SAFE STORAGE
-   localStorage menyimpan preferensi pengguna
-   agar tetap digunakan saat halaman dibuka lagi.
 ======================================== */
 
 function readStorage(key) {
   try {
     return localStorage.getItem(key);
   } catch {
-    // Bisa terjadi jika browser membatasi akses penyimpanan.
     return null;
   }
 }
@@ -327,7 +303,7 @@ function writeStorage(key, value) {
   try {
     localStorage.setItem(key, value);
   } catch {
-    // Website tetap berfungsi meskipun preferensi tidak tersimpan.
+    // Website tetap berfungsi jika storage tidak tersedia.
   }
 }
 
@@ -338,13 +314,12 @@ function writeStorage(key, value) {
 let currentLanguage = "id";
 
 /**
- * Mengubah seluruh teks dan label aksesibilitas
+ * Mengubah teks dan label aksesibilitas
  * berdasarkan bahasa yang dipilih.
  */
 function setLanguage(language, savePreference = true) {
   const selectedLanguage = translations[language];
 
-  // Abaikan bahasa yang tidak tersedia.
   if (!selectedLanguage) {
     return;
   }
@@ -352,7 +327,6 @@ function setLanguage(language, savePreference = true) {
   currentLanguage = language;
   root.lang = language;
 
-  // Mengubah teks pada elemen yang memiliki data-i18n.
   document.querySelectorAll("[data-i18n]").forEach((element) => {
     const key = element.dataset.i18n;
     const translatedText = selectedLanguage[key];
@@ -362,7 +336,6 @@ function setLanguage(language, savePreference = true) {
     }
   });
 
-  // Mengubah label aksesibilitas tanpa mengubah teks visual.
   document.querySelectorAll("[data-i18n-aria-label]").forEach((element) => {
     const key = element.dataset.i18nAriaLabel;
     const translatedText = selectedLanguage[key];
@@ -372,7 +345,6 @@ function setLanguage(language, savePreference = true) {
     }
   });
 
-  // Menandai bahasa yang sedang aktif pada tombol pilihan.
   languageButtons.forEach((button) => {
     const isActive = button.dataset.lang === language;
 
@@ -380,7 +352,6 @@ function setLanguage(language, savePreference = true) {
     button.setAttribute("aria-pressed", String(isActive));
   });
 
-  // Metadata juga diperbarui agar sesuai dengan bahasa halaman.
   document.title = selectedLanguage.pageTitle;
 
   if (descriptionMeta) {
@@ -395,7 +366,6 @@ function setLanguage(language, savePreference = true) {
     ogDescriptionMeta.setAttribute("content", selectedLanguage.pageDescription);
   }
 
-  // Label tombol harus mengikuti bahasa yang sedang aktif.
   updateThemeLabel();
   updateMenuLabel();
 
@@ -404,7 +374,6 @@ function setLanguage(language, savePreference = true) {
   }
 }
 
-// Setiap tombol bahasa memanggil fungsi yang sama.
 languageButtons.forEach((button) => {
   button.addEventListener("click", () => {
     setLanguage(button.dataset.lang);
@@ -415,10 +384,6 @@ languageButtons.forEach((button) => {
    5. THEME SWITCHER
 ======================================== */
 
-/**
- * Mengatur tema website dan memperbarui ikon,
- * label aksesibilitas, serta warna browser.
- */
 function setTheme(theme, savePreference = true) {
   const selectedTheme = theme === "light" ? "light" : "dark";
 
@@ -442,10 +407,6 @@ function setTheme(theme, savePreference = true) {
   }
 }
 
-/**
- * Label tombol menjelaskan tema tujuan,
- * bukan tema yang sedang digunakan.
- */
 function updateThemeLabel() {
   if (!themeToggle) {
     return;
@@ -474,10 +435,6 @@ if (themeToggle) {
    6. MOBILE NAVIGATION
 ======================================== */
 
-/**
- * Memperbarui label tombol menu berdasarkan
- * kondisi terbuka atau tertutup.
- */
 function updateMenuLabel() {
   if (!menuToggle) {
     return;
@@ -493,10 +450,6 @@ function updateMenuLabel() {
   }
 }
 
-/**
- * Menutup menu dan, jika diminta, mengembalikan
- * fokus keyboard ke tombol pembuka menu.
- */
 function closeMenu(returnFocus = false) {
   if (!menuToggle || !navLinks) {
     return;
@@ -513,7 +466,6 @@ function closeMenu(returnFocus = false) {
 }
 
 if (menuToggle && navLinks) {
-  // Membuka atau menutup menu ketika tombol diklik.
   menuToggle.addEventListener("click", () => {
     const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
 
@@ -528,14 +480,12 @@ if (menuToggle && navLinks) {
     updateMenuLabel();
   });
 
-  // Menu otomatis tertutup setelah pengguna memilih navigasi.
   navLinks.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
       closeMenu();
     });
   });
 
-  // Klik di luar menu akan menutup navigasi.
   document.addEventListener("click", (event) => {
     const clickedInsideMenu = navLinks.contains(event.target);
     const clickedToggle = menuToggle.contains(event.target);
@@ -547,7 +497,6 @@ if (menuToggle && navLinks) {
     }
   });
 
-  // Tombol Escape menutup menu dan mengembalikan fokus.
   document.addEventListener("keydown", (event) => {
     const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
 
@@ -556,8 +505,6 @@ if (menuToggle && navLinks) {
     }
   });
 
-  // Menu mobile tidak boleh tertinggal dalam keadaan terbuka
-  // ketika ukuran layar berubah ke tampilan desktop.
   window.addEventListener("resize", () => {
     if (window.innerWidth > 680) {
       closeMenu();
@@ -567,22 +514,15 @@ if (menuToggle && navLinks) {
 
 /* ========================================
    7. RESTORE PREFERENCES
-   Jalankan setelah semua fungsi dan event
-   listener selesai disiapkan.
 ======================================== */
 
 const savedLanguage = readStorage("portfolio-language");
 const savedTheme = readStorage("portfolio-theme");
 
-// Gunakan bahasa Indonesia jika belum ada preferensi
-// atau nilai penyimpanan tidak dikenali.
 const initialLanguage =
   savedLanguage && translations[savedLanguage] ? savedLanguage : "id";
 
-// Tema gelap menjadi pilihan awal.
 const initialTheme = savedTheme === "light" ? "light" : "dark";
 
-// Parameter false mencegah penulisan ulang ke storage
-// saat hanya memulihkan preferensi yang sudah ada.
 setLanguage(initialLanguage, false);
 setTheme(initialTheme, false);
